@@ -265,14 +265,18 @@ public class Collection {
       }
     }
   }
+  //18
   public double getAverageAttendance(List<AttendanceStudent> students) {
-    if (students.isEmpty()) return 0;
-
-    int total = 0;
+    int sum = 0;
     for (AttendanceStudent student : students) {
-      total += Integer.parseInt(student.getAttendance().replace("%", ""));
+      String raw = student.getAttendance();
+      int value = Integer.parseInt(raw.replace("%", ""));
+      sum += value;
     }
 
-    return (double) total / students.size();
+    return (double) sum / students.size();
   }
+
 }
+
+
